@@ -12,11 +12,16 @@
       "es2015",
       "dom"
     ],
-    "outDir": "lib",
+    "outDir": "aot",
     "skipLibCheck": true,
     "rootDir": "."
   },
+  "files": [
+    "./app/app.module.ts",
+    "./app/lazy.module.ts",
+    "./app/main.aot.ts"
+  ],
   "angularCompilerOptions": {
-    "genDir": "./app/ngfactory"
+    "genDir": "./aot"
   }
 }

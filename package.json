@@ -2,30 +2,35 @@
   "name": "test",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --config webpack.config.js"
+    "build:aot": "rm -rf ./aot && node --max_old_space_size=4096 node_modules/.bin/ngc -p tsconfig.json && notify-send 'aot' 'done'",
+    "build:rollup": "node --max_old_space_size=4096 node_modules/.bin/rollup -c rollup-config.js && notify-send 'rollup' 'done'",
+    "build": "npm run build:aot && npm run build:rollup && notify-send 'build' 'done'"
   },
   "dependencies": {
-    "@angular/common": "2.4.3",
-    "@angular/compiler": "2.4.3",
-    "@angular/compiler-cli": "2.4.3",
-    "@angular/core": "2.4.3",
-    "@angular/http": "2.4.3",
-    "@angular/platform-browser": "2.4.3",
-    "@angular/platform-browser-dynamic": "2.4.3",
-    "@angular/platform-server": "2.4.3",
-    "@angular/router": "~3.1.0",
+    "@angular/common": "2.4.10",
+    "@angular/compiler": "2.4.10",
+    "@angular/compiler-cli": "2.4.10",
+    "@angular/core": "2.4.10",
+    "@angular/forms": "2.4.10",
+    "@angular/http": "2.4.10",
+    "@angular/platform-browser": "2.4.10",
+    "@angular/platform-browser-dynamic": "2.4.10",
+    "@angular/platform-server": "2.4.10",
+    "@angular/router": "3.4.10",
     "core-js": "^2.4.1",
     "rxjs": "5.0.3",
     "zone.js": "^0.6.21"
   },
   "devDependencies": {
-    "@ngtools/webpack": "1.2.3",
-    "live-server": "^1.1.0",
-    "node-sass": "^3.7.0",
-    "performance-now": "^0.2.0",
-    "raw-loader": "^0.5.1",
-    "sass-loader": "^3.2.0",
-    "typescript": "2.1.5",
-    "webpack": "2.2.0"
+    "canonical-path": "0.0.2",
+    "concurrently": "^3.0.0",
+    "lodash": "^4.16.2",
+    "rimraf": "^2.5.4",
+    "rollup": "^0.41.6",
+    "rollup-plugin-commonjs": "^5.0.5",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-uglify": "^1.0.1",
+    "traceur": "^0.0.91",
+    "typescript": "2.0.6"
   }
 }
